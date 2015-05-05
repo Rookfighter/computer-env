@@ -1,7 +1,7 @@
 #!/bin/sh
 
 sudo apt-get update
-sudo apt-get install build-essential cmake git emacs vim screen gitk skype dropbox python audacious vlc flashplugin-installer texlive-full texmaker pinta
+sudo apt-get install build-essential cmake git emacs emacs-goodies-el vim screen gitk skype dropbox python audacious vlc flashplugin-installer texlive-full texmaker pinta
 sudo apt-get install nvidia-331 nvidia-prime nvidia-cg-toolkit nvidia-settings
 sudo apt-get upgrade
 
