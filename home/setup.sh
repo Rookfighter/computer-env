@@ -12,3 +12,4 @@ rm rainlendar.deb
 cp .bashrc ~/
 cp .gitconfig ~/
 cp .vimrc ~/
+cp .emacs ~/
