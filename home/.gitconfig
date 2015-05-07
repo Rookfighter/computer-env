@@ -4,4 +4,4 @@
 [push]
     default = current
 [core]
-    editor = vimS
+    editor = vim
