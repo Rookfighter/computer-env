@@ -1,5 +1,6 @@
 ;; install followig packages
 ;; package-install lua-mode
+;; package-install neotree
 (setq inhibit-startup-message t)
 
 (require 'package)
@@ -28,3 +29,7 @@
 (require 'pymacs)
 (pymacs-load "ropemacs" "rope-")
 (setq ropemacs-enable-autoimport 't)
+
+;; configure neotree
+(require 'neotree)
+(global-set-key [f8] 'neotree-toggle)
