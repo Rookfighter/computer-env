@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Minecraft
+Comment=Minecraft
+Exec=java -jar /opt/shiginima/minecraft-shiginima.jar
+Icon=/opt/shiginima/minecraft.png
+Terminal=false
+Type=Application
+Categories=Game;
