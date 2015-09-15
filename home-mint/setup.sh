@@ -2,6 +2,6 @@
 
 BASEDIR=$(pwd)
 
-cd ../home-shared
+cd ../home
 ./setup.sh
 cd $BASEDIR

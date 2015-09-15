@@ -1,7 +1,0 @@
-[user]
-    email = rookfighter@develop
-    name = Fabian Meyer
-[push]
-    default = current
-[core]
-    editor = vim

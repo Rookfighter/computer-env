@@ -2,8 +2,8 @@
 
 if [ "$1" = "" ]
 then
-    echo "usage: setup.sh <environment-name>"
-    exit 1
+	echo "usage: setup.sh <environment-name>"
+	exit 1
 fi
 
 if [ ! -d "$1" ]
