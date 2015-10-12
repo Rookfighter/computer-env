@@ -12,7 +12,7 @@ sudo dpkg -i rainlendar.deb
 rm rainlendar.deb
 
 wget http://ftp.snt.utwente.nl/pub/software/eclipse//technology/epp/downloads/release/mars/R/eclipse-java-mars-R-linux-gtk-x86_64.tar.gz -O eclipse.tar.gz
-tar xzf eclipse.tar.gz -C /opt/
+sudo tar xzf eclipse.tar.gz -C /opt/
 rm eclipse.tar.gz
 
 cp .bashrc ~/
