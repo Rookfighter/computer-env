@@ -1,7 +1,7 @@
 #!/bin/sh
 
 sudo apt-get update
-sudo apt-get -y install build-essential cmake git vim screen gitk skype dropbox python python-pip audacious vlc flashplugin-installer texlive-full texmaker pinta nvidia-331 nvidia-prime nvidia-settings openjdk-7-jdk scribes
+sudo apt-get -y install build-essential cmake git vim screen gitk skype dropbox python python-pip audacious vlc flashplugin-installer pinta nvidia-331 nvidia-prime nvidia-settings openjdk-7-jdk geany
 # emacs emacs-goodies-el pymacs pyflakes
 sudo apt-get -y upgrade
 
