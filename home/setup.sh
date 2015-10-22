@@ -15,6 +15,12 @@ wget http://ftp.snt.utwente.nl/pub/software/eclipse//technology/epp/downloads/re
 sudo tar xzf eclipse.tar.gz -C /opt/
 rm eclipse.tar.gz
 
+wget http://downloads.sourceforge.net/project/cmakeed/CMakeEd-1.1.6.zip
+unzip CMakeEd-1.1.6.zip
+sudo mv CMakeEd-1.1.6/plugins/* /opt/eclipse/plugins/
+sudo mv CMakeEd-1.1.6/features/* /opt/eclipse/features/
+rm -rf CMakeEd-1.1.6.zip CMakeEd-1.1.6
+
 cp .bashrc ~/
 cp .gitconfig ~/
 cp .vimrc ~/
