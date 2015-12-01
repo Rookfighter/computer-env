@@ -8,3 +8,9 @@ GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWSTASHSTATE=1
 GIT_PS1_SHOWUPSTREAM="auto"
 PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \w\[\033[0;37m\]$(__git_ps1) \[\033[01;34m\]\$\[\033[00m\] '
+
+if [[ $- == *i* ]]
+then
+    bind '"\e[A": history-search-backward'
+    bind '"\e[B": history-search-forward'
+fi
