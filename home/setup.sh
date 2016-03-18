@@ -21,6 +21,9 @@ sudo mv CMakeEd-1.1.6/plugins/* /opt/eclipse/plugins/
 sudo mv CMakeEd-1.1.6/features/* /opt/eclipse/features/
 rm -rf CMakeEd-1.1.6.zip CMakeEd-1.1.6
 
+MYUSER=$(whoami)
+chown -R $MYUSER:$MYUSER /opt/eclipse
+
 cp .bashrc ~/
 cp .gitconfig ~/
 cp .vimrc ~/
