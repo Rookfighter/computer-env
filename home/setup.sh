@@ -1,5 +1,8 @@
 #!/bin/sh
 
+MYUSER=$(whoami)
+MYHOME=/home/$MYUSER
+
 sudo apt-get update
 sudo apt-get -y install build-essential cmake git vim screen gitk skype dropbox python python-pip audacious vlc flashplugin-installer pinta nvidia-331 nvidia-prime nvidia-settings openjdk-7-jdk geany
 # emacs emacs-goodies-el pymacs pyflakes
@@ -12,17 +15,14 @@ sudo dpkg -i rainlendar.deb
 rm rainlendar.deb
 
 wget http://ftp.snt.utwente.nl/pub/software/eclipse//technology/epp/downloads/release/mars/R/eclipse-java-mars-R-linux-gtk-x86_64.tar.gz -O eclipse.tar.gz
-sudo tar xzf eclipse.tar.gz -C /opt/
+sudo tar xzf eclipse.tar.gz -C "$MYHOME"
 rm eclipse.tar.gz
 
 wget http://downloads.sourceforge.net/project/cmakeed/CMakeEd-1.1.6.zip
 unzip CMakeEd-1.1.6.zip
-sudo mv CMakeEd-1.1.6/plugins/* /opt/eclipse/plugins/
-sudo mv CMakeEd-1.1.6/features/* /opt/eclipse/features/
+sudo mv CMakeEd-1.1.6/plugins/* "$MYHOME/eclipse/plugins/"
+sudo mv CMakeEd-1.1.6/features/* "$MYHOME/eclipse/features/"
 rm -rf CMakeEd-1.1.6.zip CMakeEd-1.1.6
-
-MYUSER=$(whoami)
-chown -R $MYUSER:$MYUSER /opt/eclipse
 
 cp .bashrc ~/
 cp .gitconfig ~/
