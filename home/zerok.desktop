@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Zero-K
+Comment=Zero-K
+Exec=mono ##HOME_DIR##/Programs/zero-k/Zero-K.exe
+Icon=##HOME_DIR##/Programs/zero-k/Zero-K.png
+Terminal=false
+Type=Application
+Categories=Game;

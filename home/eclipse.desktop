@@ -2,9 +2,9 @@
 [Desktop Entry]
 Name=Eclipse 
 Type=Application
-Exec=/opt/eclipse/eclipse
+Exec=##HOME_DIR##/Programs/eclipse/eclipse
 Terminal=false
-Icon=/opt/eclipse/icon.xpm
+Icon=##HOME_DIR##/Programs/eclipse/icon.xpm
 Comment=Integrated Development Environment
 NoDisplay=false
 Categories=Development;IDE
