@@ -1,5 +1,7 @@
 export PATH=$PATH:"/usr/local/lib64"
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:"/usr/local/lib64"
+export DEVKITPRO="/home/fabian/devkitPro"
+export DEVKITARM="${DEVKITPRO}/devkitARM"
 
 # pkgconfig path
 export PKG_CONFIG_PATH="/usr/local/lib64/pkgconfig"
