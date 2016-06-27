@@ -8,7 +8,6 @@ sudo apt-get -y upgrade
 
 HOME_DIR="/home/$(whoami)"
 PROGRAMS_DIR="$HOME_DIR/Programs"
-PROGRAMS_DIR_ESC=$(echo "$HOME_DIR" | tr '/' '\/ ')
 DESKTOP_DIR="$HOME_DIR/.local/share/applications"
 
 mkdir -p "$PROGRAMS_DIR"
@@ -17,6 +16,7 @@ mkdir -p "$PROGRAMS_DIR"
 wget http://www.rainlendar.net/download/rainlendar2-lite_2.12.2.b138-1_amd64.deb -O rainlendar.deb
 sudo dpkg -i rainlendar.deb
 rm rainlendar.deb
+sudo apt-get install -f
 
 # Eclipse
 ECLIPSE_ROOT="$PROGRAMS_DIR/eclipse"
@@ -50,4 +50,4 @@ cp .emacs "$HOME_DIR"
 # Desktop files
 mkdir -p "$DESKTOP_DIR"
 cp *.desktop "$DESKTOP_DIR"
-sed -i "s/##PRGRAMS_DIR##/$PROGRAMS_DIR_ESC/g" "$DESKTOP_DIR/*.desktop"
+sed -i 's|##PROGRAMS_DIR##|'$PROGRAMS_DIR'|g' "$DESKTOP_DIR/"*.desktop
