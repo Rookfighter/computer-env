@@ -1,15 +1,15 @@
 #!/bin/sh
 
 sudo apt-get update
-sudo apt-get -y install build-essential cmake git vim screen gitk skype dropbox python python-pip audacious vlc flashplugin-installer pinta nvidia-331 nvidia-prime nvidia-settings openjdk-7-jdk geany mono-runtimea openvpn network-manager-openvpn-gnome
+sudo apt-get -y install build-essential cmake git vim screen gitk skype dropbox python python-pip audacious vlc flashplugin-installer pinta nvidia-331 nvidia-prime nvidia-settings openjdk-7-jdk geany mono-runtime openvpn network-manager-openvpn-gnome dia
 # emacs emacs-goodies-el pymacs pyflakes
 sudo apt-get -y upgrade
 
 # sudo pip install ropemacs
 
 HOME_DIR="/home/$(whoami)"
-HOME_DIR_ESC=$(echo "$HOME_DIR" | tr '/' '\/ ')
 PROGRAMS_DIR="$HOME_DIR/Programs"
+PROGRAMS_DIR_ESC=$(echo "$HOME_DIR" | tr '/' '\/ ')
 DESKTOP_DIR="$HOME_DIR/.local/share/applications"
 
 mkdir -p "$PROGRAMS_DIR"
@@ -22,15 +22,21 @@ rm rainlendar.deb
 # Eclipse
 ECLIPSE_ROOT="$PROGRAMS_DIR/eclipse"
 wget http://ftp.snt.utwente.nl/pub/software/eclipse//technology/epp/downloads/release/mars/R/eclipse-java-mars-R-linux-gtk-x86_64.tar.gz -O eclipse.tar.gz
-sudo tar xzf eclipse.tar.gz -C "$PROGRAMS_DIR"
+tar xzf eclipse.tar.gz -C "$PROGRAMS_DIR"
 rm eclipse.tar.gz
 
 # Eclipse CMakeEd
 wget http://downloads.sourceforge.net/project/cmakeed/CMakeEd-1.1.6.zip
 unzip CMakeEd-1.1.6.zip
-sudo mv CMakeEd-1.1.6/plugins/* "$ECLIPSE_ROOT/plugins/"
-sudo mv CMakeEd-1.1.6/features/* "$ECLIPSE_ROOT/features/"
+mv CMakeEd-1.1.6/plugins/* "$ECLIPSE_ROOT/plugins/"
+mv CMakeEd-1.1.6/features/* "$ECLIPSE_ROOT/features/"
 rm -rf CMakeEd-1.1.6.zip CMakeEd-1.1.6
+
+# Umlet
+wget http://www.umlet.com/umlet_14_2/umlet-standalone-14.2.zip
+unzip umlet-standalone-14.2.zip
+mv Umlet "$PROGRAMS_DIR"
+rm umlet-standalone-14.2.zip
 
 # Zero-K
 mkdir -p "$PROGRAMS_DIR/zero-k"
@@ -45,4 +51,4 @@ cp .emacs "$HOME_DIR"
 # Desktop files
 mkdir -p "$DESKTOP_DIR"
 cp *.desktop "$DESKTOP_DIR"
-sed -i "s/##HOME_DIR##/$HOME_DIR_ESC/g" "$DESKTOP_DIR/*.desktop"
+sed -i "s/##PRGRAMS_DIR##/$PROGRAMS_DIR_ESC/g" "$DESKTOP_DIR/*.desktop"

@@ -1,8 +1,8 @@
 [Desktop Entry]
 Name=Minecraft
 Comment=Minecraft
-Exec=java -jar ##HOME_DIR##/Programs/minecraft/minecraft.jar
-Icon=##HOME_DIR##/Programs/minecraft/minecraft.png
+Exec=java -jar ##PROGRAMS_DIR##/Programs/minecraft/minecraft.jar
+Icon=##PROGRAMS_DIR##/Programs/minecraft/minecraft.png
 Terminal=false
 Type=Application
 Categories=Game;
