@@ -16,11 +16,11 @@ mkdir -p "$PROGRAMS_DIR"
 wget http://www.rainlendar.net/download/rainlendar2-lite_2.12.2.b138-1_amd64.deb -O rainlendar.deb
 sudo dpkg -i rainlendar.deb
 rm rainlendar.deb
-sudo apt-get install -f
+sudo apt-get -y install -f
 
 # Eclipse
 ECLIPSE_ROOT="$PROGRAMS_DIR/eclipse"
-wget http://ftp.snt.utwente.nl/pub/software/eclipse//technology/epp/downloads/release/mars/R/eclipse-java-mars-R-linux-gtk-x86_64.tar.gz -O eclipse.tar.gz
+wget "https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/neon/R/eclipse-java-neon-R-linux-gtk-x86_64.tar.gz&r=1" -O eclipse.tar.gz
 tar xzf eclipse.tar.gz -C "$PROGRAMS_DIR"
 rm eclipse.tar.gz
 
