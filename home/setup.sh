@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/bash -e
 
 sudo apt-get update
 sudo apt-get -y install build-essential cmake git vim screen gitk skype dropbox python python-pip audacious vlc flashplugin-installer pinta nvidia-361 nvidia-prime nvidia-settings openjdk-8-jdk mono-runtime openvpn network-manager-openvpn-gnome dia easymp3gain-gtk easytag
@@ -14,7 +14,9 @@ mkdir -p "$PROGRAMS_DIR"
 
 # Rainlendar
 wget http://www.rainlendar.net/download/rainlendar2-lite_2.12.2.b138-1_amd64.deb -O rainlendar.deb
+set +e
 sudo dpkg -i rainlendar.deb
+set -e
 rm rainlendar.deb
 sudo apt-get -y install -f
 
