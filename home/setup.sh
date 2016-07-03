@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -e
 
 sudo apt-get update
 sudo apt-get -y install build-essential cmake git vim screen gitk skype dropbox python python-pip audacious vlc flashplugin-installer pinta nvidia-361 nvidia-prime nvidia-settings openjdk-8-jdk mono-runtime openvpn network-manager-openvpn-gnome dia easymp3gain-gtk easytag
