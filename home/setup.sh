@@ -44,7 +44,7 @@ mkdir -p "$PROGRAMS_DIR/zero-k"
 wget http://zero-k.info/lobby/Zero-K.exe
 mv Zero-K.exe "$PROGRAMS_DIR/zero-k"
 
-cp .bashrc "$HOME_DIR"
+cat .bashrc >> "$HOME_DIR/.bashrc"
 cp .gitconfig "$HOME_DIR"
 cp .vimrc "$HOME_DIR"
 cp .emacs "$HOME_DIR"
