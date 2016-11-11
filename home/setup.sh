@@ -1,10 +1,8 @@
 #!/bin/bash -e
 
 sudo apt-get update
-sudo apt-get -y install build-essential cmake git vim screen gitk skype dropbox python python-pip audacious vlc flashplugin-installer pinta openjdk-8-jdk mono-runtime openvpn network-manager-openvpn-gnome dia easymp3gain-gtk easytag
+sudo apt-get -y install build-essential cmake git autoconf vim screen gitk skype dropbox python3 python3-pip audacious vlc flashplugin-installer pinta openjdk-8-jdk mono-runtime openvpn network-manager-openvpn-gnome dia easymp3gain-gtk easytag texlive-full texstudio grub-customizer virtualbox keepass2 meld
 sudo apt-get -y upgrade
-
-# sudo pip install ropemacs
 
 HOME_DIR="/home/$(whoami)"
 PROGRAMS_DIR="$HOME_DIR/Programs"
@@ -18,6 +16,22 @@ set +e
 sudo dpkg -i rainlendar.deb
 set -e
 rm rainlendar.deb
+sudo apt-get -y install -f
+
+# Atom Editor
+wget https://atom.io/download/deb -O atom.deb
+set +e
+sudo dpkg -i atom.deb
+set -e
+rm atom.deb
+sudo apt-get -y install -f
+
+# Anki Flashcards
+wget http://ankisrs.net/download/mirror/anki-2.0.36.deb -O anki.deb
+set +e
+sudo dpkg -i anki.deb
+set -e
+rm anki.deb
 sudo apt-get -y install -f
 
 # Eclipse
