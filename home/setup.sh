@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
 sudo apt-get update
-sudo apt-get -y install build-essential cmake git autoconf vim screen gitk skype dropbox python3 python3-pip audacious vlc flashplugin-installer pinta openjdk-8-jdk mono-runtime openvpn network-manager-openvpn-gnome dia easymp3gain-gtk easytag texlive-full texstudio grub-customizer virtualbox keepass2 meld
+sudo apt-get -y install build-essential cmake git autoconf vim screen gitk skype dropbox python3 python3-pip audacious vlc flashplugin-installer pinta openjdk-8-jdk mono-runtime openvpn network-manager-openvpn-gnome dia easymp3gain-gtk easytag texlive-full texstudio virtualbox keepass2 meld
 sudo apt-get -y upgrade
 
 HOME_DIR="/home/$(whoami)"
