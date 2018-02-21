@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=Zero-K
-Comment=Zero-K
-Exec=mono ##PROGRAMS_DIR##/zero-k/Chobby.exe
-Icon=##PROGRAMS_DIR##/zero-k/zero-k.png
-Terminal=false
-Type=Application
-Categories=Game;
