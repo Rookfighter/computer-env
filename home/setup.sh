@@ -9,8 +9,8 @@ PROGRAMS_DIR="$HOME_DIR/opt"
 DESKTOP_DIR="$HOME_DIR/.local/share/applications"
 
 # URLs
-RAINLENDAR_URL="http://www.rainlendar.net/download/rainlendar2-pro_2.13.1.b147-1_amd64.deb"
-ANKI_URL="http://ankisrs.net/download/mirror/anki-2.0.36.deb"
+RAINLENDAR_URL="http://www.rainlendar.net/download/rainlendar2-pro_2.14.b155-1_amd64.deb"
+ANKI_URL="https://apps.ankiweb.net/downloads/archive/anki-2.0.36.deb"
 
 mkdir -p "$PROGRAMS_DIR"
 
