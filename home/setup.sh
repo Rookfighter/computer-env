@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
 sudo apt-get update
-sudo apt-get -y install build-essential cmake git autoconf vim screen gitk python3 python3-pip clementine vlc flashplugin-installer pinta openjdk-8-jdk mono-complete openvpn network-manager-openvpn-gnome easymp3gain-gtk easytag texlive-full texstudio virtualbox keepass2 meld unzip
+sudo apt-get -y install build-essential cmake git autoconf vim screen gitk python3 python3-pip clementine vlc pinta openjdk-8-jdk mono-complete openvpn network-manager-openvpn-gnome easymp3gain-gtk easytag texlive-full texstudio virtualbox keepass2 meld unzip python3-flake8
 sudo apt-get -y upgrade
 
 HOME_DIR="/home/$(whoami)"
@@ -23,12 +23,12 @@ rm rainlendar.deb
 sudo apt-get -y install -f
 
 # Seafile
-sudo add-apt-repository ppa:seafile/seafile-client
+sudo add-apt-repository -y ppa:seafile/seafile-client
 sudo apt-get update
 sudo apt-get -y install seafile-gui
 
 # Atom Editor
-sudo add-apt-repository ppa:webupd8team/atom
+sudo add-apt-repository -y ppa:webupd8team/atom
 sudo apt-get update
 sudo apt-get -y install atom
 
