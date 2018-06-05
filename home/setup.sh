@@ -1,7 +1,16 @@
 #!/bin/bash -e
 
+sudo add-apt-repository -y ppa:seafile/seafile-client
+sudo add-apt-repository -y ppa:webupd8team/atom
 sudo apt-get update
-sudo apt-get -y install build-essential cmake git autoconf vim screen gitk python3 python3-pip clementine vlc pinta openjdk-8-jdk mono-complete openvpn network-manager-openvpn-gnome easymp3gain-gtk easytag texlive-full texstudio virtualbox keepass2 meld unzip python3-flake8
+sudo apt-get -y install \
+    build-essential cmake git gitk meld autoconf vim screen  \
+    python3 python3-pip python3-flake8 virtualenv \
+    clementine vlc easymp3gain-gtk easytag pinta \
+    openjdk-8-jdk mono-complete \
+    openvpn network-manager-openvpn-gnome bmon \
+    texlive-full texstudio virtualbox keepass2 unzip \
+    seafile-gui atom
 sudo apt-get -y upgrade
 
 HOME_DIR="/home/$(whoami)"
@@ -9,8 +18,13 @@ PROGRAMS_DIR="$HOME_DIR/opt"
 DESKTOP_DIR="$HOME_DIR/.local/share/applications"
 
 # URLs
-RAINLENDAR_URL="http://www.rainlendar.net/download/rainlendar2-pro_2.14.b155-1_amd64.deb"
+RAINLENDAR_URL="http://www.rainlendar.net/download/rainlendar2-pro_2.14.2.b157-1_amd64.deb"
 ANKI_URL="https://apps.ankiweb.net/downloads/archive/anki-2.0.36.deb"
+
+git clone https://github.com/Rookfighter/atom-settings.git "$HOME_DIR/.atom"
+cd "$HOME_DIR/.atom"
+./package.sh install
+cd "$HOME_DIR"
 
 mkdir -p "$PROGRAMS_DIR"
 
@@ -21,16 +35,6 @@ sudo dpkg -i rainlendar.deb
 set -e
 rm rainlendar.deb
 sudo apt-get -y install -f
-
-# Seafile
-sudo add-apt-repository -y ppa:seafile/seafile-client
-sudo apt-get update
-sudo apt-get -y install seafile-gui
-
-# Atom Editor
-sudo add-apt-repository -y ppa:webupd8team/atom
-sudo apt-get update
-sudo apt-get -y install atom
 
 # Anki Flashcards
 wget "$ANKI_URL" -O anki.deb
