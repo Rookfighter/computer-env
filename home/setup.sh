@@ -10,7 +10,7 @@ sudo apt-get -y install \
     openjdk-8-jdk mono-complete \
     openvpn network-manager-openvpn-gnome bmon \
     texlive-full texstudio virtualbox keepass2 unzip \
-    seafile-gui atom
+    seafile-gui atom clang-6.0 libclang-6.0-dev
 sudo apt-get -y upgrade
 
 HOME_DIR="/home/$(whoami)"
