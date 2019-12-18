@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=Application
-Version=1.1.1
-Name=Aseprite
-Comment=Animated sprite editor & pixel art tool
-Icon=##PROGRAMS_DIR##/aseprite/data/icons/ase32.png
-Exec=##PROGRAMS_DIR##/aseprite/aseprite
-Terminal=false
-Categories=Graphics
