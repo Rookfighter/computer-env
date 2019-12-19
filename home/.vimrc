@@ -29,7 +29,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'flazz/vim-colorschemes', { 'do' : 'mkdir -p ~/.vim/colors && cp  colors/* ~/.vim/colors' }
 Plug 'amiorin/vim-project'
 Plug 'scrooloose/nerdtree'
-Plug 'Valloric/YouCompleteMe', { 'do' : 'python install.py' }
 Plug 'vim-syntastic/syntastic'
 
 call plug#end()
@@ -54,11 +53,6 @@ call project#rc()
 " ==================
 
 let NERDTreeShowHidden=1
-
-" configure YouCompleteMe
-" =======================
-
-
 
 " configure syntastic
 " ===================
