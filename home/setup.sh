@@ -13,6 +13,7 @@ sudo apt-get -y install \
     seafile-gui atom 
 sudo apt-get -y upgrade
 
+BASE_DIR=$(cd $(dirname "$1") && pwd)
 HOME_DIR="/home/$(whoami)"
 PROGRAMS_DIR="$HOME_DIR/Applications"
 DESKTOP_DIR="$HOME_DIR/.local/share/applications"
@@ -21,10 +22,13 @@ DESKTOP_DIR="$HOME_DIR/.local/share/applications"
 RAINLENDAR_URL="https://www.rainlendar.net/download/rainlendar2-pro_2.15.1.b163-1_amd64.deb"
 BITWARDEN_URL="https://vault.bitwarden.com/download/?app=desktop&platform=linux&variant=appimage"
 
-git clone "https://github.com/Rookfighter/atom-settings.git" "$HOME_DIR/.atom"
-cd "$HOME_DIR/.atom"
-./package.sh install
-cd "$HOME_DIR"
+if [ ! -d "$HOME_DIR/.atom" ]
+then
+	git clone "https://github.com/Rookfighter/atom-settings.git" "$HOME_DIR/.atom"
+	cd "$HOME_DIR/.atom"
+	./package.sh install
+	cd "$BASE_DIR"
+fi
 
 mkdir -p "$PROGRAMS_DIR"
 
@@ -36,12 +40,11 @@ set -e
 rm rainlendar.deb
 sudo apt-get -y install -f
 
-
 cat .bashrc >> "$HOME_DIR/.bashrc"
 cp .gitconfig "$HOME_DIR"
 cp .vimrc "$HOME_DIR"
 
 # Desktop files
-mkdir -p "$DESKTOP_DIR"
-cp *.desktop "$DESKTOP_DIR"
-sed -i 's|##PROGRAMS_DIR##|'$PROGRAMS_DIR'|g' "$DESKTOP_DIR/"*.desktop
+#mkdir -p "$DESKTOP_DIR"
+#cp *.desktop "$DESKTOP_DIR"
+#sed -i 's|##PROGRAMS_DIR##|'$PROGRAMS_DIR'|g' "$DESKTOP_DIR/"*.desktop
