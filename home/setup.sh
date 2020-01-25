@@ -20,7 +20,7 @@ DESKTOP_DIR="$HOME_DIR/.local/share/applications"
 # URLs
 RAINLENDAR_URL="https://www.rainlendar.net/download/rainlendar2-pro_2.15.1.b163-1_amd64.deb"
 BITWARDEN_URL="https://github.com/bitwarden/desktop/releases/download/v1.16.6/Bitwarden-1.16.6-amd64.deb"
-ATOM_URL="https://github.com/atom/atom/releases/download/v1.42.0/atom-amd64.deb"
+ATOM_URL="https://github.com/atom/atom/releases/download/v1.43.0/atom-amd64.deb"
 
 if [ ! -d "$HOME_DIR/.atom" ]
 then
