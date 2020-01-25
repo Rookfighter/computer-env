@@ -27,41 +27,11 @@ nmap oo :NERDTreeFocus <CR>
 call plug#begin('~/.vim/plugged')
 
 Plug 'flazz/vim-colorschemes', { 'do' : 'mkdir -p ~/.vim/colors && cp  colors/* ~/.vim/colors' }
-Plug 'amiorin/vim-project'
 Plug 'scrooloose/nerdtree'
-Plug 'vim-syntastic/syntastic'
 
 call plug#end()
-
-" configure vim-project
-" =====================
-
-set rtp+=~/.vim/bundle/vim-project/
-let g:project_use_nerdtree = 1
-
-" define workspace
-call project#rc("~/develop")
-
-Project 'optimization-cpp'
-Project 'bayes-filter-cpp'
-Project 'scan-matcher-cpp'
-Project 'vbox/my_workspace/src/calibration_odom'
-
-call project#rc()
 
 " configure NERDTree
 " ==================
 
 let NERDTreeShowHidden=1
-
-" configure syntastic
-" ===================
-
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
