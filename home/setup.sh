@@ -9,7 +9,7 @@ sudo apt-get -y install \
     openjdk-8-jdk mono-complete \
     openvpn network-manager-openvpn-gnome bmon \
     texlive-full texstudio unzip \
-    seafile-gui
+    seafile-gui skype
 sudo apt-get -y upgrade
 
 BASE_DIR=$(cd $(dirname "$1") && pwd)
@@ -21,14 +21,6 @@ DESKTOP_DIR="$HOME_DIR/.local/share/applications"
 RAINLENDAR_URL="https://www.rainlendar.net/download/rainlendar2-pro_2.15.1.b163-1_amd64.deb"
 BITWARDEN_URL="https://github.com/bitwarden/desktop/releases/download/v1.16.6/Bitwarden-1.16.6-amd64.deb"
 ATOM_URL="https://github.com/atom/atom/releases/download/v1.43.0/atom-amd64.deb"
-
-if [ ! -d "$HOME_DIR/.atom" ]
-then
-	git clone "https://github.com/Rookfighter/atom-settings.git" "$HOME_DIR/.atom"
-	cd "$HOME_DIR/.atom"
-	./package.sh install
-	cd "$BASE_DIR"
-fi
 
 mkdir -p "$PROGRAMS_DIR"
 
@@ -46,6 +38,14 @@ rm bitwarden.deb
 wget "$ATOM_URL" -O atom.deb
 sudo gdebi -n atom.deb
 rm atom.deb
+
+if [ ! -d "$HOME_DIR/.atom" ]
+then
+    git clone "https://github.com/Rookfighter/atom-settings.git" "$HOME_DIR/.atom"
+    cd "$HOME_DIR/.atom"
+    ./package.sh install
+    cd "$BASE_DIR"
+fi
 
 cat .bashrc >> "$HOME_DIR/.bashrc"
 cp .gitconfig "$HOME_DIR"
