@@ -1,12 +1,13 @@
 #!/bin/bash -e
 
 sudo add-apt-repository -y ppa:seafile/seafile-client
+sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 sudo apt-get update
 sudo apt-get -y install \
     build-essential cmake git gitk meld autoconf vim screen  \
-    python3 python3-pip python3-flake8 virtualenv \
+    python3 python3-pip python3-pylint virtualenv \
     vlc easytag pinta \
-    openjdk-8-jdk mono-complete \
+    openjdk-8-jdk \
     openvpn network-manager-openvpn-gnome bmon \
     texlive-full texstudio unzip \
     seafile-gui skype
@@ -18,9 +19,8 @@ PROGRAMS_DIR="$HOME_DIR/Applications"
 DESKTOP_DIR="$HOME_DIR/.local/share/applications"
 
 # URLs
-RAINLENDAR_URL="https://www.rainlendar.net/download/rainlendar2-pro_2.15.1.b163-1_amd64.deb"
-BITWARDEN_URL="https://github.com/bitwarden/desktop/releases/download/v1.16.6/Bitwarden-1.16.6-amd64.deb"
-ATOM_URL="https://github.com/atom/atom/releases/download/v1.43.0/atom-amd64.deb"
+RAINLENDAR_URL="https://www.rainlendar.net/download/rainlendar2-pro_2.15.4.b166-1_amd64.deb"
+BITWARDEN_URL="https://github.com/bitwarden/desktop/releases/download/v1.23.1/Bitwarden-1.23.1-x86_64.AppImage"
 
 mkdir -p "$PROGRAMS_DIR"
 
@@ -29,23 +29,11 @@ wget "$RAINLENDAR_URL" -O rainlendar.deb
 sudo gdebi -n rainlendar.deb
 rm rainlendar.deb
 
-# Rainlendar
-wget "$BITWARDEN_URL" -O bitwarden.deb
-sudo gdebi -n bitwarden.deb
-rm bitwarden.deb
-
-# Atom
-wget "$ATOM_URL" -O atom.deb
-sudo gdebi -n atom.deb
-rm atom.deb
-
-if [ ! -d "$HOME_DIR/.atom" ]
-then
-    git clone "https://github.com/Rookfighter/atom-settings.git" "$HOME_DIR/.atom"
-    cd "$HOME_DIR/.atom"
-    ./package.sh install
-    cd "$BASE_DIR"
-fi
+# Bitwarden
+mkdir -p "$PROGRAMS_DIR/Bitwarden"
+wget "$BITWARDEN_URL" -O "$PROGRAMS_DIR/Bitwarden/Bitwarden.AppImage"
+# copy icon
+# copy desktop file 
 
 cat .bashrc >> "$HOME_DIR/.bashrc"
 cp .gitconfig "$HOME_DIR"
