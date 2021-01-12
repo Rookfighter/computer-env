@@ -19,7 +19,6 @@ autocmd BufWritePre * :%s/\s+$//e
 
 " custom keybindings
 nmap fc :%!clang-format-6.0 -style=file <CR>
-nmap oo :NERDTreeFocus <CR>
 
 " configure plugins
 " =================
@@ -27,11 +26,5 @@ nmap oo :NERDTreeFocus <CR>
 call plug#begin('~/.vim/plugged')
 
 Plug 'flazz/vim-colorschemes', { 'do' : 'mkdir -p ~/.vim/colors && cp  colors/* ~/.vim/colors' }
-Plug 'scrooloose/nerdtree'
 
 call plug#end()
-
-" configure NERDTree
-" ==================
-
-let NERDTreeShowHidden=1
