@@ -1,0 +1,9 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Name=Bitwarden
+Exec=##PROGRAMS_DIR##/Bitwarden/Bitwarden
+Icon=##PROGRAMS_DIR##/Bitwarden/Bitwarden.png
+Terminal=false
+Type=Application
+Categories=Office;
+MimeType=x-scheme-handler/bitwarden;text/html;text/plain

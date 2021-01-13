@@ -4,7 +4,7 @@ sudo add-apt-repository -y ppa:seafile/seafile-client
 sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 sudo apt-get update
 sudo apt-get -y install \
-    build-essential cmake git gitk meld autoconf vim screen  \
+    build-essential cmake git gitk meld autoconf vim screen \
     python3 python3-pip python3-pylint virtualenv \
     vlc easytag pinta \
     openjdk-8-jdk \
@@ -30,16 +30,16 @@ sudo gdebi -n rainlendar.deb
 rm rainlendar.deb
 
 # Bitwarden
-mkdir -p "$PROGRAMS_DIR/Bitwarden"
-wget "$BITWARDEN_URL" -O "$PROGRAMS_DIR/Bitwarden/Bitwarden.AppImage"
-# copy icon
-# copy desktop file 
+BITWARDEN_DIR="$PROGRAMS_DIR/Bitwarden"
+mkdir -p "$BITWARDEN_DIR"
+wget "$BITWARDEN_URL" -O "$BITWARDEN_DIR/Bitwarden"
+cp "$BASE_DIR/Bitwarden.png" "$BITWARDEN_DIR"
 
 cat .bashrc >> "$HOME_DIR/.bashrc"
 cp .gitconfig "$HOME_DIR"
 cp .vimrc "$HOME_DIR"
 
 # Desktop files
-#mkdir -p "$DESKTOP_DIR"
-#cp *.desktop "$DESKTOP_DIR"
-#sed -i 's|##PROGRAMS_DIR##|'$PROGRAMS_DIR'|g' "$DESKTOP_DIR/"*.desktop
+mkdir -p "$DESKTOP_DIR"
+cp *.desktop "$DESKTOP_DIR"
+sed -i 's|##PROGRAMS_DIR##|'$PROGRAMS_DIR'|g' "$DESKTOP_DIR/"*.desktop
