@@ -1,13 +1,10 @@
 [user]
-    email = user8324@posteo.net
+    email = rookfighter@posteo.org
     name = Fabian Meyer
 [push]
     default = current
 [core]
-    editor = vim
-[alias]
-    lgb = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset%n' --abbrev-commit --date=relative --branches
-    pullr = pull --rebase
+    editor = nvim
 [merge]
     tool = meld
 [mergetool "meld"]

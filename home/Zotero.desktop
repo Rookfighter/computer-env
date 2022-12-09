@@ -1,0 +1,8 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Name=Zotero
+Exec=##PROGRAMS_DIR##/Zotero/zotero
+Icon=##PROGRAMS_DIR##/Zotero/zotero.png
+Terminal=false
+Type=Application
+Categories=Office;
