@@ -15,12 +15,10 @@ PROGRAMS_DIR="$HOME_DIR/.local/opt"
 DESKTOP_DIR="$HOME_DIR/.local/share/applications"
 
 # URLs
-VSCODE_URL="https://az764295.vo.msecnd.net/stable/5235c6bb189b60b01b1f49062f4ffa42384f8c91/code_1.74.0-1670260027_amd64.deb"
-RAINLENDAR_URL="https://www.rainlendar.net/download/2.18.0/rainlendar2-pro_2.18.0.b171-1_amd64.deb"
-BITWARDEN_URL="https://github.com/bitwarden/clients/releases/download/desktop-v2023.2.0/Bitwarden-2023.2.0-amd64.deb"
-ZOTERO_URL="https://download.zotero.org/client/release/6.0.22/Zotero-6.0.22_linux-x86_64.tar.bz2"
-NVIM_URL="https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.deb"
-BUILD2_URL="https://stage.build2.org/0/0.16.0-a.0/build2-install-0.16.0-a.0-stage.sh"
+RAINLENDAR_URL="https://www.rainlendar.net/download/2.21.3/rainlendar2-pro_2.21.3.b180-1_amd64.deb"
+BITWARDEN_URL="https://github.com/bitwarden/clients/releases/download/desktop-v2024.10.2/Bitwarden-2024.10.2-x86_64.AppImage"
+ZOTERO_URL="https://download.zotero.org/client/release/7.0.9/Zotero-7.0.9_linux-x86_64.tar.bz2"
+NVIM_URL="https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz"
 
 mkdir -p "$PROGRAMS_DIR"
 
@@ -29,45 +27,40 @@ wget "$RAINLENDAR_URL" -O rainlendar.deb
 sudo gdebi -n rainlendar.deb
 rm rainlendar.deb
 
-# VS Code
-wget "$RAINLENDAR_URL" -O vscode.deb
-sudo gdebi -n vscode.deb
-rm vscode.deb
-
 # NVIM
-wget "$NVIM_URL" -O nvim.deb
-sudo gdebi -n nvim.deb
-rm nvim.deb
+wget "$NVIM_URL" -O nvim-linux64.tar.gz
+tar xzf nvim-linux64.tar.gz
+cp -r nvim-linux64/bin "$HOME_DIR/.local"
+cp -r nvim-linux64/lib "$HOME_DIR/.local"
+cp -r nvim-linux64/share "$HOME_DIR/.local"
+rm -r nvim-linux64.tar.gz nvim-linux64
 
 # Bitwarden
-wget "$BITWARDEN_URL" -O Bitwarden.deb
-sudo gdebi -n Bitwarden.deb
-rm Bitwarden.deb
+BITWARDEN_DIR="$PROGRAMS_DIR/Bitwarden"
+mkdir -p "$BITWARDEN_DIR"
+wget "$BITWARDEN_URL" -O "$BITWARDEN_DIR/Bitwarden"
+chmod +x "$BITWARDEN_DIR/Bitwarden"
+cp "$BASE_DIR/Bitwarden.png" "$BITWARDEN_DIR"
 
 # Zotero
 ZOTERO_DIR="$PROGRAMS_DIR/Zotero"
-mkdir -p "$ZOTERO_DIR"
+rm -rf "$ZOTERO_DIR"
 wget "$ZOTERO_URL" -O zotero.tar.bz2
-tar -xjf "zotero.tar.bz2" -C "$ZOTERO_DIR"
-cp "$BASE_DIR/zotero.png" "$ZOTERO_DIR"
+tar -xjf "zotero.tar.bz2" -C "$PROGRAMS_DIR"
+mv "$PROGRAMS_DIR/Zotero_linux-x86_64" "$ZOTERO_DIR"
+cp "$BASE_DIR/Zotero.png" "$ZOTERO_DIR"
 rm zotero.tar.bz2
 
-NVIM_CONFIG_DIR="$HOME_DIR/.config/nvim"
+# NVIM_CONFIG_DIR="$HOME_DIR/.config/nvim"
 
-cat "$BASE_DIR/.bashrc" >> "$HOME_DIR/.bashrc"
-cp "$BASE_DIR/.gitconfig" "$HOME_DIR"
-cp "$BASE_DIR/.vimrc" "$HOME_DIR"
-mkdir -p "$NVIM_CONFIG_DIR"
-cp "$BASE_DIR/init.vim" "$NVIM_CONFIG_DIR"
+# cat "$BASE_DIR/.bashrc" >> "$HOME_DIR/.bashrc"
+# cp "$BASE_DIR/.gitconfig" "$HOME_DIR"
+# cp "$BASE_DIR/.vimrc" "$HOME_DIR"
+# mkdir -p "$NVIM_CONFIG_DIR"
+# cp "$BASE_DIR/init.vim" "$NVIM_CONFIG_DIR"
 
 # Desktop files
 mkdir -p "$DESKTOP_DIR"
 cp *.desktop "$DESKTOP_DIR"
 sed -i 's|##PROGRAMS_DIR##|'$PROGRAMS_DIR'|g' "$DESKTOP_DIR/"*.desktop
 
-# Build2
-BUILD2_DIR="$HOME_DIR/Downloads/build2-build"
-mkdir -p "$BUILD2_DIR"
-cd "$BUILD2_DIR"
-wget "$BUILD2_URL" -O build2-install.sh
-sh build2-install.sh --local
