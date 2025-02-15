@@ -4,7 +4,7 @@ sudo apt-get update
 sudo apt-get -y install \
     build-essential cmake git gitk meld autoconf vim screen \
     python3 python3-pip virtualenv \
-    vlc easytag pinta \
+    vlc easytag \
     bmon curl wget htop \
     texlive-full texstudio unzip
 sudo apt-get -y upgrade
